@@ -1,0 +1,145 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "Protest Guerrilla", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background-color: #472d30;
+}
+
+.over-box{
+    width: 70%;
+    height: 40%;
+    background-color: #fdf0d5;
+    position: absolute;
+    border-radius:150px;
+    box-shadow: 0 0 25px 1px black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 10px dashed #472d30;
+    transition: all 1s;
+    z-index: 1;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.over-box.flex {
+    opacity: 1;
+    visibility: visible;
+    user-select: none;
+}
+
+.over-text{
+    font-size: 200px;
+    color: #472d30;
+}
+
+.body{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.score-bar{
+    width: 500px;
+    height: 100px;
+    background-color: #e26d5c;
+    border-radius: 25px;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.score-bar div{
+    width: 200px;
+    height: 60px;
+    border-radius: 15px;
+    background-color: #723d46;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+}
+
+.time{
+    font-size: 35px;
+    color: #ffe1a8;
+}
+
+.score{
+    font-size: 35px;
+    color: #ffe1a8;
+}
+
+.game-box{
+    width: 500px;
+    height: 500px;
+    background-color: #e26d5c;
+    border-radius: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    gap: 10px;
+}
+
+.items{
+    width:calc(25% - 8px);
+    height: calc(25% - 8px);
+    background-color: #723d46;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: center;
+    transform-style: preserve-3d;
+    perspective: 30em;
+    transition: all 0.3s;
+    user-select: none;
+}
+
+.rotate , 
+.active{
+    transform: rotateY(180deg);
+}
+
+.items > div{
+    width:100%;
+    height: 100%;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backface-visibility: hidden;
+}
+
+.div-front{
+    background-color: #723d46;
+}
+
+.div-back{
+    background-color: #fdf0d5;
+    position: absolute;
+    transform: rotateY(180deg);
+}
+
+.div-back span{
+    font-size: 50px;
+}
+
+.items i{
+    font-size: 90px;
+    color: #ffe1a8;
+    user-select: none;
+}
