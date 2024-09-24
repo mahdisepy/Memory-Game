@@ -18,11 +18,12 @@ const emoji = [
   ];
 const gameover = document.querySelector('.over-box');
 const gamebox = document.querySelector('.game-box');
-const scorebar = document.querySelector('.score-bar')
+const scorebar = document.querySelector('.score-bar');
 const items = document.querySelector('.items');
-const timer = document.querySelector('.time-text')
-const scoretext = document.querySelector('.score-text')
-const btnAgain = document.querySelector('.btnAgain')
+const timer = document.querySelector('.time-text');
+const scoretext = document.querySelector('.score-text');
+const btnAgain = document.querySelector('.btnAgain');
+const showResult = document.querySelector('.showResult');
 
 let Elmlock = false;
 let emojis = ["", "" ,"" ,"" ,"" ,"" ,"" ,"" ,"" ,"" ,"" ,"" ,"" ,"" ,"" ,""];
@@ -31,9 +32,7 @@ let emojiShow = "";
 let min = 2 ;
 let sec = 0 ;
 let score = 0;
-let time = setInterval( timeleft , 1000)
-
-btnAgain.addEventListener('click', playAgain);
+let time = setInterval( timeleft , 1000);
 
 function creatgame(){
   emoji.forEach((item) => {
@@ -97,6 +96,9 @@ function checkcorrect() {
   if (countCorrectAnswer == emojis.length) {
     score ++;
     scoretext.textContent = score;
+    showResult.classList.add('flex')
+    gamebox.style.display = 'none';
+    scorebar.style.display = 'none';
     clearInterval(time);
   }
 }
@@ -121,10 +123,7 @@ function timeleft(){
   timer.textContent = `0${min}:${sec < 10 ? '0' + sec : sec}`
 }
 
-//فانشن ساخت عدد رندوم
-function getrandomenumber(min , max){
-  return Math.floor(Math.random() * (max - min) + min)
-}
+btnAgain.addEventListener('click', playAgain);
 
 function playAgain() {
   clearInterval(time);
@@ -136,6 +135,14 @@ function playAgain() {
   min = 2 ;
   sec = 0 ;
   time = setInterval( timeleft , 1000);
+  showResult.style.display = 'none'
+  gamebox.style.display = 'flex';
+  scorebar.style.display = 'flex';
   
   creatgame();
+}
+
+//فانشن ساخت عدد رندوم
+function getrandomenumber(min , max){
+  return Math.floor(Math.random() * (max - min) + min)
 }

@@ -13,7 +13,7 @@ body {
     background-color: #472d30;
 }
 
-.over-box{
+.over-box, .showResult {
     width: 70%;
     height: 40%;
     background-color: #fdf0d5;
@@ -30,7 +30,7 @@ body {
     visibility: hidden;
 }
 
-.over-box.flex {
+.over-box.flex, .showResult.flex {
     opacity: 1;
     visibility: visible;
     user-select: none;
@@ -142,4 +142,19 @@ body {
     font-size: 90px;
     color: #ffe1a8;
     user-select: none;
+}
+
+.showResult{
+    height: 50%;
+    flex-direction: column;
+    gap: 5px;
+    padding: 20px;
+}
+
+.showResult button{
+    width: 200px;
+    height: 100px;
+    border-radius: 25px;
+    background-color: #472d30;
+    color: #ffe1a8;
 }
